@@ -7,4 +7,4 @@ class UnitTests(unittest.TestCase):
     lilycontents = lilypond.single_note_template('c') 
     print lilycontents
     self.assertEqual(0, lilypond.run(lilycontents, "testout"))
-    self.assertTrue(os.path.exists("testout.pdf"))
+    self.assertTrue(os.path.exists("testout.png"))
