@@ -3,5 +3,5 @@ python: "2.7"
 install:
   - wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh
   - yes | bash lilypond-2.18.2-1.linux-64.sh
-  - export PATH=~/lilypond:$PATH
+  - export PATH=~/bin:$PATH
 script: nosetests

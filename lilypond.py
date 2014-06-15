@@ -11,4 +11,4 @@ def run(contents):
   with open(tmppath, 'w') as f:
     f.write(contents)
 
-  return subprocess.call(["lilypond", tmppath])
+  return subprocess.call(["~/lilypond/lilypond", tmppath])
