@@ -2,5 +2,5 @@ language: python
 python: "3.3"
 install:
   - wget http://download.linuxaudio.org/lilypond/binaries/linux-x86/lilypond-2.18.2-1.linux-x86.sh
-  - yes | bash lilypond-2.18.2.1.linux-x86.sh
+  - yes | bash lilypond-2.18.2-1.linux-x86.sh
   - export PATH=~/lilypond:$PATH
