@@ -6,9 +6,9 @@ def single_note_template(replacement):
     contents = f.read()
   return contents % replacement
 
-def run(contents):
+def run(contents, outpath):
   _, tmppath = tempfile.mkstemp()
   with open(tmppath, 'w') as f:
     f.write(contents)
 
-  return subprocess.call(["lilypond", tmppath])
+  return subprocess.call(["lilypond", "--output", outpath, tmppath])
