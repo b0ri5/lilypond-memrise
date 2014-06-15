@@ -1,3 +1,4 @@
+import os
 import subprocess
 import tempfile
 
@@ -11,4 +12,13 @@ def run(contents, outpath):
   with open(tmppath, 'w') as f:
     f.write(contents)
 
-  return subprocess.call(["lilypond", "--output", outpath, tmppath])
+  exitcode = subprocess.call(["lilypond", "--output", outpath, tmppath])
+  if exitcode:
+    return exitcode
+
+  exitcode = subprocess.call(['convert', '-density', '400', '-trim', '+repage', outpath + '.pdf', outpath + '.png'])
+  if exitcode:
+    return exitcode
+
+  os.remove(outpath + '.pdf')
+  return exitcode
