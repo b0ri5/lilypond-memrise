@@ -1,24 +1,26 @@
 import os
 import subprocess
-import tempfile
 
 def single_note_template(replacement):
   with open('single-note-template.ly') as f:
-    contents = f.read()
-  return contents % replacement
+    return f.read() % replacement
 
-def run(contents, outpath):
-  _, tmppath = tempfile.mkstemp()
-  with open(tmppath, 'w') as f:
+def run(contents, name):
+  lilyfile = name + '.ly'
+  with open(lilyfile, 'w') as f:
     f.write(contents)
 
-  exitcode = subprocess.call(["lilypond", "--output", outpath, tmppath])
+  exitcode = subprocess.call(["lilypond", "--output", name, lilyfile])
   if exitcode:
     return exitcode
 
-  exitcode = subprocess.call(['convert', '-density', '400', '-trim', '+repage', outpath + '.pdf', outpath + '.png'])
+  exitcode = subprocess.call(['convert',
+                              '-density', '400',
+                              '-trim', '+repage',
+                              name + '.pdf', name + '.png'])
+
   if exitcode:
     return exitcode
 
-  os.remove(outpath + '.pdf')
+  os.remove(name + '.pdf')
   return exitcode

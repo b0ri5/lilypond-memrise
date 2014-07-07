@@ -6,4 +6,6 @@ pylint \
   --reports n \
   --indent-string="  " \
   --disable=missing-docstring \
-  --disable=too-many-public-methods
+  --disable=too-many-public-methods \
+  --disable=invalid-name \
+  *.py
