@@ -7,5 +7,5 @@ install:
   - sudo apt-get -y install imagemagick
   - pip install pylint
 script:
-  - pylint --reports n --indent-string="  " --disable=missing-docstring --disable=too-many-public-methods
+  - scripts/pylint
   - nosetests
