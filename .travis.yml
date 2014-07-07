@@ -5,4 +5,7 @@ install:
   - wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh
   - yes | bash lilypond-2.18.2-1.linux-64.sh
   - sudo apt-get -y install imagemagick
-script: nosetests
+  - pip install -r requirements.txt
+script:
+  - scripts/pylint
+  - nosetests
