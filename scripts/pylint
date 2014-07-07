@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+pylint \
+  --reports n \
+  --indent-string="  " \
+  --disable=missing-docstring \
+  --disable=too-many-public-methods
