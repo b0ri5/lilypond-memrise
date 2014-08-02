@@ -1,12 +1,11 @@
 import os
 import lilypond
 
-
-class Note:
+class Note(object):
   def __init__(self, lily, english):
-    self.lily  = lily
+    self.lily = lily
     self.english = english
-    
+
 
 def main():
   octaves = [('', '3'), ("'", '4'), ("''", '5')]
